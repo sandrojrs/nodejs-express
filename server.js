@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:3000"
 };
 
 const db = require("./app/models");
@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 // definir porta, ouvir pedidos
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 3000;
 require("./app/routes/turorial.routes")(app);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
