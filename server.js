@@ -13,20 +13,26 @@ const db = require("./app/models");
 
 app.use(cors(corsOptions));
 
-db.sequelize.sync({ force: true }).then(() => {
-    console.log("Apagamos e reescrevemos o banco :)");
-  });
+db.sequelize.sync({
+  force: true
+}).then(() => {
+  console.log("Apagamos e reescrevemos o banco :)");
+});
 
 
 // analisa solicitações de tipo de conteúdo - application / json
 app.use(bodyParser.json());
 
 // analisar solicitações de content-type - application / x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 // rota simples
 app.get("/", (req, res) => {
-  res.json({ message: "Bem vindo ao nosso servidor." });
+  res.json({
+    message: "Bem vindo ao nosso servidor."
+  });
 });
 
 // definir porta, ouvir pedidos
