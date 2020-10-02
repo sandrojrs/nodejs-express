@@ -13,12 +13,15 @@ const db = require("./app/models");
 
 app.use(cors(corsOptions));
 
-db.sequelize.sync({
+
+db.sequelize.sync();
+
+/*db.sequelize.sync({
   force: true
 }).then(() => {
   console.log("Apagamos e reescrevemos o banco :)");
 });
-
+*/
 
 // analisa solicitações de tipo de conteúdo - application / json
 app.use(bodyParser.json());
