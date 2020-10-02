@@ -24,6 +24,6 @@ module.exports = app => {
     // detela todos os registos
     router.delete("/", tutorials.deleteAll);
   
-    app.use('/api/tutorials', router);
+    app.use('/api/', router);
     
   };
