@@ -9,12 +9,18 @@ var corsOptions = {
 
 const db = require("./app/models");
 
-//db.sequelize.sync();
-
 app.use(cors(corsOptions));
 
-
 db.sequelize.sync();
+
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Conexão estabelecida com sucesso.');
+  })
+  .catch(err => {
+    console.error('Não há conseguimos conectar ao database:', err);
+  });
 
 /*db.sequelize.sync({
   force: true
